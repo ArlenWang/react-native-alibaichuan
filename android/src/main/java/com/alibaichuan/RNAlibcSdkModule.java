@@ -117,6 +117,10 @@ public class RNAlibcSdkModule extends ReactContextBaseJavaModule {
                 map.putString("avatarUrl", session.avatarUrl);
                 map.putString("openId", session.openId);
                 map.putString("isLogin", "true");
+                map.putString("openSid", session.openSid);
+                map.putString("topAccessToken", session.topAccessToken);
+                map.putString("topAuthCode", session.topAuthCode);
+                map.putString("topExpireTime", session.topExpireTime);
                 callback.invoke(null, map);
             }
 
@@ -150,6 +154,10 @@ public class RNAlibcSdkModule extends ReactContextBaseJavaModule {
             map.putString("avatarUrl", session.avatarUrl);
             map.putString("openId", session.openId);
             map.putString("isLogin", "true");
+            map.putString("openSid", session.openSid);
+            map.putString("topAccessToken", session.topAccessToken);
+            map.putString("topAuthCode", session.topAuthCode);
+            map.putString("topExpireTime", session.topExpireTime);
             callback.invoke(null, map);
         } else {
             callback.invoke(NOT_LOGIN);
