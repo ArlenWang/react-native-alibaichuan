@@ -121,6 +121,7 @@ public class RNAlibcSdkModule extends ReactContextBaseJavaModule {
                 map.putString("topAccessToken", session.topAccessToken);
                 map.putString("topAuthCode", session.topAuthCode);
                 map.putString("topExpireTime", session.topExpireTime);
+                //Log.i(TAG, "获取淘宝用户信息:"+session);
                 callback.invoke(null, map);
             }
 
@@ -379,9 +380,9 @@ public class RNAlibcSdkModule extends ReactContextBaseJavaModule {
     private AlibcTaokeParams dealTaokeParams(final ReadableMap param) {
         ReadableMap payload = param.getMap("payload");
         // 初始化参数
-        String mmpid = "";
-        String adzoneid = "";
-        String tkkey = "";
+        String mmpid = "";//mm_23448739_6500158_22182062
+        String adzoneid = "";//60538822
+        String tkkey = "";//23482513
 
         // 设置mmpid
         if (payload.getString("mmpid") != null
