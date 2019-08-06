@@ -55,7 +55,7 @@
     [[ALBBSDK sharedInstance] auth:[UIApplication sharedApplication].delegate.window.rootViewController
                    successCallback:^(ALBBSession *session) {
                        ALBBUser *s = [session getUser];
-                       NSDictionary *ret = @{@"userNick": s.nick, @"avatarUrl":s.avatarUrl, @"openId":s.openId, @"isLogin":@"true"};
+                       NSDictionary *ret = @{@"userNick": s.nick, @"avatarUrl":s.avatarUrl, @"openId":s.openId, @"isLogin":@"true", @"openSid":s.openSid, @"topAccessToken":s.topAccessToken, @"topAccessToken":s.topAccessToken, @"topAuthCode":s.topAuthCode, @"topExpireTime":s.topExpireTime};
                        callback(@[[NSNull null], ret]);
                    }
                    failureCallback:^(ALBBSession *session, NSError *error) {
@@ -75,7 +75,7 @@
 {
     if([[ALBBSession sharedInstance] isLogin]){
         ALBBUser *s = [[ALBBSession sharedInstance] getUser];
-        NSDictionary *ret = @{@"userNick": s.nick, @"avatarUrl":s.avatarUrl, @"openId":s.openId,  @"isLogin":@"true"};
+        NSDictionary *ret = @{@"userNick": s.nick, @"avatarUrl":s.avatarUrl, @"openId":s.openId,  @"isLogin":@"true", @"openSid":s.openSid, @"topAccessToken":s.topAccessToken, @"topAccessToken":s.topAccessToken, @"topAuthCode":s.topAuthCode, @"topExpireTime":s.topExpireTime};
         callback(@[[NSNull null], ret]);
     } else {
         callback(@[NOT_LOGIN]);
@@ -213,10 +213,10 @@
 {
     NSDictionary *payload = (NSDictionary *)param[@"payload"];
     
-    NSString *mmPid = @"mm_23448739_15832573_60538822";
+    NSString *mmPid = @"";
     NSString *isvcode=@"app";
-    NSString *adzoneid=@"60538822";
-    NSString *tkkey=@"23482513";
+    NSString *adzoneid=@"";
+    NSString *tkkey=@"";
     
     AlibcTradeTaokeParams *taokeParam = [[AlibcTradeTaokeParams alloc] init];
     if ((NSString *)payload[@"mmpid"]!=nil) {
