@@ -371,9 +371,9 @@ public class RNAlibcSdkModule extends ReactContextBaseJavaModule {
     private AlibcTaokeParams dealTaokeParams(final ReadableMap param) {
         ReadableMap payload = param.getMap("payload");
         // 初始化参数
-        String mmpid = "mm_23448739_6500158_22182062";
-        String adzoneid = "60538822";
-        String tkkey = "23482513";
+        String mmpid = "";
+        String adzoneid = "";
+        String tkkey = "";
 
         // 设置mmpid
         if (payload.getString("mmpid") != null
