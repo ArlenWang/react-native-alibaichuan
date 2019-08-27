@@ -25,10 +25,8 @@
     }
     return instance;
 }
-
 - (void)initTae: (RCTResponseSenderBlock)callback
 {
-    // 百川平台基础SDK初始化，加载并初始化各个业务能力插件
     [[AlibcTradeSDK sharedInstance] asyncInitWithSuccess:^{
         callback(@[[NSNull null]]);
     } failure:^(NSError *error) {
@@ -36,12 +34,12 @@
         callback(@[ret]);
     }];
 
-    // 初始化AlibabaAuthSDK
-    [[ALBBSDK sharedInstance] ALBBSDKInit];
-
+     // 百川平台基础SDK初始化，加载并初始化各个业务能力插件
+    //[[AlibcTradeSDK sharedInstance] setEnv:AlibcEnvironmentRelease];
     // 开发阶段打开日志开关，方便排查错误信息
-    //默认调试模式打开日志,release关闭,可以不调用下面的函数
     [[AlibcTradeSDK sharedInstance] setDebugLogOpen:YES];
+    //[[AlibcTradeSDK sharedInstance] setTaokeParams:nil];
+    [[ALBBSDK sharedInstance] ALBBSDKInit];
 
     //设置全局的app标识，在电商模块里等同于isv_code
     [[AlibcTradeSDK sharedInstance] setISVCode:@"app"];
@@ -49,7 +47,6 @@
     // 设置全局配置，是否强制使用h5
     [[AlibcTradeSDK sharedInstance] setIsForceH5:NO];
 }
-
 - (void)showLogin: (RCTResponseSenderBlock)callback
 {
     [[ALBBSDK sharedInstance] auth:[UIApplication sharedApplication].delegate.window.rootViewController
@@ -213,10 +210,10 @@
 {
     NSDictionary *payload = (NSDictionary *)param[@"payload"];
     
-    NSString *mmPid = @"";
+    NSString *mmPid = @"mm_125663651_34564131_122006971";
     NSString *isvcode=@"app";
-    NSString *adzoneid=@"";
-    NSString *tkkey=@"";
+    NSString *adzoneid=@"122006971";
+    NSString *tkkey=@"24638433";
     
     AlibcTradeTaokeParams *taokeParam = [[AlibcTradeTaokeParams alloc] init];
     if ((NSString *)payload[@"mmpid"]!=nil) {
