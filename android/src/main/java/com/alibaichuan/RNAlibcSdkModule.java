@@ -211,7 +211,7 @@ public class RNAlibcSdkModule extends ReactContextBaseJavaModule {
                 this._show(new AlibcMyOrdersPage(payload.getInt("orderStatus"), payload.getBoolean("allOrder")), param, callback);
                 break;
             case "addCard":
-                this._show(new AlibcAddCartPage(param.getString("itemid")), param, callback);
+                this._show(new AlibcAddCartPage(payload.getString("itemid")), param, callback);
                 break;
             case "mycard":
                 this._show(new AlibcMyCartsPage(), param, callback);
